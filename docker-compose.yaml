@@ -1,0 +1,29 @@
+version: '3'
+services:
+  tempnotes:
+    build: .
+    links:
+      - 'postgres'
+    volumes:
+      - '.:/usr/src/tempnotes'
+    ports:
+      - '3000:3000'
+    environment:
+      - HOST=*
+      - DB_HOST=postgres-db
+      - DB_PORT=5432
+      - DB_NAME=tempnotes
+      - DB_USER=tempnotes
+      - DB_PASSWORD=tempnotes
+  postgres:
+    image: postgres:13.4-alpine
+    environment:
+      POSTGRES_USER: 'tempnotes'
+      POSTGRES_PASSWORD: 'tempnotes'
+    volumes:
+      - "tempnotes_postgres:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+
+volumes:
+  tempnotes_postgres:
