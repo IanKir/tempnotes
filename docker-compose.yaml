@@ -10,7 +10,7 @@ services:
       - '3000:3000'
     environment:
       - HOST=*
-      - DB_HOST=postgres-db
+      - DB_HOST=postgres
       - DB_PORT=5432
       - DB_NAME=tempnotes
       - DB_USER=tempnotes
