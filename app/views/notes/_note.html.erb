@@ -1,0 +1,16 @@
+<div id="<%= dom_id note %>">
+  <p>
+    <strong>Title:</strong>
+    <%= note.title %>
+  </p>
+
+  <p>
+    Posted <%= time_tag note.created_at, "data-local": "time-ago" %>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= note.content %>
+  </p>
+
+</div>
